@@ -1,0 +1,15 @@
+try {
+‎    java.lang.Process su = Runtime.getRuntime().exec("su");
+‎    java.io.DataOutputStream outputStream = new java.io.DataOutputStream(su.getOutputStream());
+‎
+‎    outputStream.writeBytes("sh /storage/emulated/0/Android/device/ON.sb\n");
+‎    outputStream.flush();
+‎    outputStream.writeBytes("exit\n");
+‎    outputStream.flush();
+‎
+‎    su.waitFor();
+‎} catch (java.io.IOException e) {
+‎    e.printStackTrace();
+‎} catch (InterruptedException e2) {
+‎    e2.printStackTrace();
+‎}
